@@ -5,3 +5,6 @@ export const saveTodo = (todo) =>
 
 export const loadTodos = () =>
   axios.get('http://localhost:3030/api/todos')
+
+export const deleteTodo = (id) =>
+  axios.delete(`http://localhost:3030/api/todos/${id}`)
