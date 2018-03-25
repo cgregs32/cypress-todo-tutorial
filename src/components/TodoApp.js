@@ -48,16 +48,19 @@ export default class TodoApp extends Component {
     );
   }
 
-  handleToggle(id) {
-    const targetTodo = this.state.todos.find(t => (t.id = id));
+  handleToggle (id) {
+    const targetTodo = this.state.todos.find(t => t.id === id)
     const updated = {
       ...targetTodo,
       isComplete: !targetTodo.isComplete
-    };
-    updateTodo(updated).then(({ data }) => {
-      const todos = this.state.todos.map(t => (t.id === data.id ? data : t));
-      this.setState({ todos: todos });
-    });
+    }
+    updateTodo(updated)
+      .then(({data}) => {
+        const todos = this.state.todos.map(
+          t => t.id === data.id ? data : t
+        )
+        this.setState({todos: todos})
+      })
   }
 
   render() {
